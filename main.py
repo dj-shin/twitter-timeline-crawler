@@ -14,7 +14,7 @@ def get_timeline(account_type, since_id=None):
     messages = []
     for tweet in public_tweets:
         message = '{}: {}'.format(tweet.user.name, tweet.text)
-        messages.append(message)
+        messages.append(message.replace('₩n', ' '))
 
     resp = requests.post('http://localhost:7890/api/letter', data={
         'title': '트위터 {}'.format(account_type),
